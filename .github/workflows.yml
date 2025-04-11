@@ -1,0 +1,26 @@
+name: Predict stock movements and run daily
+
+on:
+  schedule:
+    - cron: "10 22 * * 1-5"
+
+jobs:
+  run_and_email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies (if any)
+        run: pip install -r requirements.txt
+
+      - name: Run your script
+        id: run_script
+        run: |
+          output=$(python3 main.py --API_KEY "${{ secrets.API_KEY }}" --SECRET_KEY "${{ secrets.SECRET_KEY }})
+          echo "::set-output name=script_output::$output"

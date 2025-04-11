@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import datetime
@@ -13,8 +14,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 # API Keys Alpaca setup
-API_KEY = ''
-SECRET_KEY = ''
+API_KEY = os.environ.get("API_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 client = StockHistoricalDataClient(API_KEY, SECRET_KEY)
 
 def plot_stock_data(df):
