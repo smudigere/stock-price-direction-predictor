@@ -1,0 +1,4 @@
+alpaca-py
+plotly
+plotly-subplots
+tensorflow
