@@ -10,14 +10,14 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout, SimpleRNN, GRU
 from tensorflow.keras.optimizers import Adam
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+#import plotly.graph_objects as go
+#from plotly.subplots import make_subplots
 
 # API Keys Alpaca setup
 API_KEY = os.environ.get("API_KEY")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 client = StockHistoricalDataClient(API_KEY, SECRET_KEY)
-
+'''
 def plot_stock_data(df):
   df['SMA5'] = df['close'].rolling(window=5).mean()
   df['SMA20'] = df['close'].rolling(window=20).mean()
@@ -67,7 +67,7 @@ def plot_stock_data(df):
                     height=800)
 
   fig.show()
-
+'''
 
 # Calculate technical indicators
 def add_indicators(df):
@@ -199,7 +199,6 @@ if __name__ == '__main__':
 
     print('\nCreating GRU model...')
     gru_model = create_gru_model(input_shape=(look_back, X.shape[2]))
-
 
     history_lstm = lstm_model.fit(X_train, y_train,
                         batch_size=32,

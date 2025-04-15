@@ -2,7 +2,7 @@ name: Predict stock movements and run daily
 
 on:
   schedule:
-    - cron: "15 22 * * 1-5"
+    - cron: "*/5 * * * *"
 
 jobs:
   run_and_email:
