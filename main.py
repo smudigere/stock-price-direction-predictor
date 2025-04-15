@@ -177,8 +177,8 @@ if __name__ == '__main__':
     df = dataset.copy()
 
     # Plot the data
-    print('\nPlotting stock data...')
-    plot_stock_data(df)
+    #print('\nPlotting stock data...')
+    #plot_stock_data(df)
 
     # Add indicators
     df = add_indicators(df)
